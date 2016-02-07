@@ -1,5 +1,27 @@
 language: python
 
-install: true
+python:
+  - 2.7
 
-script: true
+build:
+  pre_ci:
+    # Always pull the latest base image to avoid any cached images on the host
+    - docker pull drydock/u14pls:prod
+    - docker build --rm -t drydock/u14all:tip .
+
+  pre_ci_boot:
+    image_name: drydock/u14all
+    image_tag: tip
+    pull: false
+
+  ci:
+    # We can add sanity checks to ensure the image was built successfully here
+    - echo "Hello, World!"
+
+  on_success:
+    - if [ "$IS_PULL_REQUEST" != true ]; then docker push drydock/u14all:tip; fi
+
+integrations:
+  hub:
+    - integrationName: "dockerhub"
+      type: "docker"
