@@ -16,7 +16,11 @@ build:
 
   ci:
     # We can add sanity checks to ensure the image was built successfully here
-    - echo "Hello, World!"
+    #- /u14all/test/_cassandra.sh
+    - /u14all/test/_couchdb.sh
+    - /u14all/test/_neo4j.sh
+    - /u14all/test/_rethinkdb.sh
+    - /u14all/test/_riak.sh
 
   on_success:
     - if [ "$IS_PULL_REQUEST" != true ]; then docker push drydock/u14all:tip; fi
