@@ -16,7 +16,6 @@ build:
 
   ci:
     # We can add sanity checks to ensure the image was built successfully here
-    #- /u14all/test/_cassandra.sh
     - /u14all/test/_couchdb.sh
     - /u14all/test/_neo4j.sh
     - /u14all/test/_rethinkdb.sh
