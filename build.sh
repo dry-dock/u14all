@@ -5,11 +5,12 @@ export IMAGE_NAME=drydock/u14all
 export RES_DOCKER_CREDS=docker-creds
 export RES_REPO=u14all-repo
 export RES_IMAGE=u14all-img
+export UP_IMAGE=u14-img
 
 findUpstreamBaseVersion() {
-  echo "Find Latest Version for" $RES_IMAGE
-  export versionName=$(cat ./IN/$RES_IMAGE/version.json | jq -r '.version.versionName')
-  echo "Completed find Latest Version for" $RES_IMAGE
+  echo "Find Latest Version for" $UP_IMAGE
+  export versionName=$(cat ./IN/$UP_IMAGE/version.json | jq -r '.version.versionName')
+  echo "Completed find Latest Version for" $UP_IMAGE
 }
 
 dockerLogin() {
