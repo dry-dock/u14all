@@ -20,6 +20,15 @@ build:
     - /u14all/test/_neo4j.sh
     - /u14all/test/_rethinkdb.sh
     - /u14all/test/_riak.sh
+    - /u14pls/test/_elasticsearch.sh
+    - /u14pls/test/_memcached.sh
+    - /u14pls/test/_mongo.sh
+    - /u14pls/test/_mysql.sh
+    - /u14pls/test/_postgres.sh
+    - /u14pls/test/_rabbitmq.sh
+    - /u14pls/test/_redis.sh
+    - /u14pls/test/_selenium.sh
+    - sqlite3 -version
 
   on_success:
     - if [ "$IS_PULL_REQUEST" != true ]; then docker push drydock/u14all:tip; fi
