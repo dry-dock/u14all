@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-VERSION=2.2.1
+VERSION=3.0.1
 
 # Make sure Java is installed
 java_version=$(java -version 2>&1 | awk -F '"' '/version/ {print $2}')

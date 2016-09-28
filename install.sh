@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+sudo chmod 1777 /tmp
+
 for file in /u14all/version/*;
 do
   . $file
@@ -11,7 +13,7 @@ echo "================= Adding mysql cnf ==================="
 cd /u14all && cp -rf my.cnf /etc/mysql/my.cnf
 
 echo "================= Adding PostgreSQL cnf ==================="
-cd /u14all && cp -rf pg_hba.cnf /etc/postgresql/9.4/main/pg_hba.conf
+cd /u14all && cp -rf pg_hba.cnf /etc/postgresql/9.6/main/pg_hba.conf
 
 echo "================= Cleaning package lists ==================="
 apt-get clean
