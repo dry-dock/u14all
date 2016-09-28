@@ -3,9 +3,9 @@
 export SHIPPABLE_ES_CLUSTER_NAME=shippabletest;
 export SHIPPABLE_ES_PORT=9200;
 export SHIPPABLE_ES_BINARY="/usr/local/bin/elasticsearch";
-export SHIPPABLE_ES_CMD="$SHIPPABLE_ES_BINARY --cluster.name=$SHIPPABLE_ES_CLUSTER_NAME";
+export SHIPPABLE_ES_CMD="$SHIPPABLE_ES_BINARY -Des.insecure.allow.root=true --cluster.name=$SHIPPABLE_ES_CLUSTER_NAME";
 # End service ENV variables
-
+/usr/local/bin/elasticsearch --cluster.name=shippabletest
 #
 # Function to START
 #
