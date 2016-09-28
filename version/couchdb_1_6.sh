@@ -2,7 +2,7 @@
 
 VERSION=1.6.1
 
-mkdir /usr/local/var/lib/couchdb -p
+mkdir -p /usr/local/var/lib/couchdb
 
 # Add couchdb user
 sudo adduser \

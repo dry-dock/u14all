@@ -1,4 +1,5 @@
 #!/bin/bash -e
+
 sudo chmod 1777 /tmp
 
 for file in /u14all/version/*;
