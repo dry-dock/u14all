@@ -18,7 +18,7 @@ stop_service() {
   curl -s -X POST "http://localhost:9200/_shutdown" 2>&1;
 }
 
-source /u14pls/test/function_start_generic.sh
+source /u14all/test/function_start_generic.sh
 #
 # Call to start service
 #

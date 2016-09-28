@@ -27,7 +27,7 @@ stop_service() {
   sudo su -c "killall -15 java";
 }
 
-source /u14pls/test/function_start_generic.sh
+source /u14all/test/function_start_generic.sh
 #
 # Call to start service
 #
