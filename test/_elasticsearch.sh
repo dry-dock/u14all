@@ -3,7 +3,7 @@
 export SHIPPABLE_ES_CLUSTER_NAME=shippabletest;
 export SHIPPABLE_ES_PORT=9200;
 export SHIPPABLE_ES_BINARY="/usr/local/bin/elasticsearch";
-export SHIPPABLE_ES_CMD="$SHIPPABLE_ES_BINARY -Des.insecure.allow.root=true --cluster.name=$SHIPPABLE_ES_CLUSTER_NAME";
+export SHIPPABLE_ES_CMD="$SHIPPABLE_ES_BINARY -d -Des.insecure.allow.root=true -p=elasticsearch_pid --cluster.name=$SHIPPABLE_ES_CLUSTER_NAME";
 # End service ENV variables
 
 #
@@ -15,7 +15,7 @@ start_service() {
 
 # Function to stop
 stop_service() {
-  curl -s -X POST "http://localhost:9200/_shutdown" 2>&1;
+  kill `cat elasticsearch_pid`
 }
 
 source /u14all/test/function_start_generic.sh
