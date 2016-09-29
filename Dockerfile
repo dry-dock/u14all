@@ -1,4 +1,4 @@
-FROM drydock/u14:{{%TAG%}}
+FROM drydock/u14:prod
 
 ADD . /u14all
 

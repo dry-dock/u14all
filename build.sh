@@ -44,7 +44,6 @@ createImage() {
   else
     echo "Starting Docker build for" $IMAGE_NAME:tip
     cd ./IN/$RES_REPO/gitRepo
-    sed -i "s/{{%TAG%}}/$versionName/g" Dockerfile
     sudo docker build -t=$IMAGE_NAME:tip .
     echo "Completed Docker build for" $IMAGE_NAME:$GIT_TAG
   fi
