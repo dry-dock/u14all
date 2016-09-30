@@ -7,7 +7,7 @@ Available Services :
 2.  elasticsearch 2.4
 3.  memcached 1.4
 4.  mongodb 3.2
-5.  mysql 5.7
+5.  mysql 5.6
 6.  neo4j 3.0
 7.  postgres 9.6
 8.  rabbitmq 3.6
