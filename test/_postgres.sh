@@ -20,7 +20,7 @@ start_service() {
 #
 stop_service() {
   sleep 30
-  sudo kill -INT $(pgrep -f postgresql)
+  sudo kill -9 $(pgrep -f postgresql)
 }
 
 source /u14all/test/function_start_generic.sh

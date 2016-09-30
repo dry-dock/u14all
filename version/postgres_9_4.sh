@@ -1,12 +1,13 @@
+
 #!/bin/bash -e
 
 sudo apt-get install -y wget ca-certificates
 
-echo "================= Installing Postgre 9.4 ==================="
+echo "================= Installing Postgres 9.6 ==================="
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
-sudo apt-get install -y postgresql-9.4 postgresql-server-dev-9.4
+sudo apt-get install -y postgresql-9.6 postgresql-server-dev-9.6
 
 # Fix bug https://github.com/docker/docker/issues/783
 # which prevents postgresql from staring when using aufs

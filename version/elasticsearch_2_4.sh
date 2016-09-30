@@ -1,8 +1,8 @@
 #!/bin/bash -e
 
-VERSION=2.4.0
+VERSION=2.4.1
 
-echo "================= Installing ElasticSearch ==================="
+echo "================= Installing ElasticSearch 2.4.1 ==================="
 sudo wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-${VERSION}.tar.gz
 sudo tar xzf elasticsearch-${VERSION}.tar.gz -C /usr/local && sudo rm -f elasticsearch-${VERSION}.tar.gz
 sudo ln -s /usr/local/elasticsearch-${VERSION}/bin/elasticsearch /usr/local/bin/elasticsearch
