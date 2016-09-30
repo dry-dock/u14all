@@ -10,7 +10,7 @@ export SHIPPABLE_CASSANDRA_LOG="/var/log/cassandra/system.log"
 # Function to START
 #
 start_service() {
-  start_generic_service "cassandra" "$SHIPPABLE_CASSANDRA_BINARY" "$SHIPPABLE_CASSANDRA_CMD" "$SHIPPABLE_CASSANDRA_PORT" "$SHIPPABLE_CASSANDRA_LOG";
+  sudo su -c "/usr/sbin/cassandra -R"
 }
 
 #
