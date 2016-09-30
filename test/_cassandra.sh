@@ -1,9 +1,7 @@
 # Begin service ENV variables
 export SHIPPABLE_CASSANDRA_PORT=9160;
 export SHIPPABLE_CASSANDRA_BINARY="/usr/sbin/cassandra";
-if [ -z "$SHIPPABLE_CASSANDRA_CMD" ]; then
-  export SHIPPABLE_CASSANDRA_CMD="$SHIPPABLE_CASSANDRA_BINARY -f -R";
-fi
+export SHIPPABLE_MYSQL_CMD="$SHIPPABLE_MYSQL_BINARY -f -R";
 export SHIPPABLE_CASSANDRA_LOG="/var/log/cassandra/system.log"
 
 # End service ENV variables
