@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+echo "================= Installing Riak ==================="
+
 # Install dependencies
 sudo apt-get install -y \
   build-essential \
@@ -16,6 +18,6 @@ sudo apt-get install -y \
   libpam-dev
 
 # Install Riak
-wget http://s3.amazonaws.com/downloads.basho.com/riak/2.0/2.0.5/ubuntu/precise/riak_2.0.5-1_amd64.deb
+wget http://s3.amazonaws.com/downloads.basho.com/riak/2.0/2.0.7/ubuntu/trusty/riak_2.0.7-1_amd64.deb
 sudo dpkg -i riak*.deb
 rm riak*.deb

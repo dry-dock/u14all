@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+echo "================= Installing CouchDB 1.6.1 ==================="
+
 VERSION=1.6.1
 
 mkdir -p /usr/local/var/lib/couchdb

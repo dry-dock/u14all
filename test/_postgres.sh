@@ -2,7 +2,7 @@
 # Begin service ENV variables
 export SHIPPABLE_START_POSTGRES=true;
 export SHIPPABLE_POSTGRES_PORT=5432;
-export SHIPPABLE_POSTGRES_VERSION="9.4";
+export SHIPPABLE_POSTGRES_VERSION="9.6";
 export SHIPPABLE_POSTGRES_BINARY="/usr/lib/postgresql/$SHIPPABLE_POSTGRES_VERSION/bin/postgres";
 export SHIPPABLE_POSTGRES_CMD="sudo -u postgres $SHIPPABLE_POSTGRES_BINARY -c config_file=/etc/postgresql/$SHIPPABLE_POSTGRES_VERSION/main/postgresql.conf";
 
@@ -20,7 +20,7 @@ start_service() {
 #
 stop_service() {
   sleep 30
-  sudo kill -INT $(pgrep -f postgresql)
+  sudo kill -9 $(pgrep -f postgresql)
 }
 
 source /u14all/test/function_start_generic.sh
