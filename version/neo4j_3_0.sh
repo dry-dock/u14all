@@ -1,15 +1,8 @@
 #!/bin/bash -e
 
-VERSION=3.0.1
+VERSION=3.0.6
 
-# Make sure Java is installed
-java_version=$(java -version 2>&1 | awk -F '"' '/version/ {print $2}')
-if [[ -z "$java_version" ]]; then
-  echo "ElasticSearch needs Java to be installed on your system. Exiting."
-  exit 1
-fi
-
-# Install prerequisites
+# # Install prerequisites
 sudo apt-get install -y lsof
 
 # Install Neo4j
