@@ -9,21 +9,24 @@ export SHIPPABLE_CASSANDRA_LOG="/var/log/cassandra/system.log"
 # End service ENV variables
 
 #
-# Function to START <%=obj%>
+# Function to START
 #
-<%=obj%>_start() {
+start_service() {
   start_generic_service "cassandra" "$SHIPPABLE_CASSANDRA_BINARY" "$SHIPPABLE_CASSANDRA_CMD" "$SHIPPABLE_CASSANDRA_PORT" "$SHIPPABLE_CASSANDRA_LOG";
 }
 
 #
-# Function to STOP <%=obj%>
+# Function to STOP
 #
-<%=obj%>_stop() {
+stop_service() {
   sudo su -c "kill -9 `ps aux | grep [c]assandra | awk '{print $2}'`";
 }
 
-#
-# Call to start <%=obj%>
-#
-trap before_exit EXIT
-exec_grp "<%=obj%>_start"
+echo "================= Starting cassandra ==================="
+printf "\n"
+start_service
+printf "\n\n"
+echo "================= Stopping cassandra ==================="
+printf "\n"
+stop_service
+printf "\n\n"
