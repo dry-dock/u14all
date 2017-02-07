@@ -35,7 +35,7 @@ mkdir -p /usr/local/elasticsearch/logs
 mkdir -p /usr/local/elasticsearch/tmp
 
 cd /usr/local/elasticsearch
-cp -r /u16all/version/elasticsearch/config /usr/local/elasticsearch/config
+cp -r /u14all/version/elasticsearch/config /usr/local/elasticsearch/config
 
 for path in \
 	./tmp \
