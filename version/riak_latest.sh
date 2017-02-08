@@ -4,20 +4,17 @@ echo "================= Installing Riak ==================="
 
 # Install dependencies
 sudo apt-get install -y \
+  m4 \
   build-essential \
-  libc6-dev-i386 \
+  protobuf-compiler \
+  python \
+  libprotobuf9v5 \
+  libcurl4-openssl-dev \
+  libboost-all-dev \
   libncurses5-dev \
-  openssl \
-  libssl-dev \
-  fop \
-  xsltproc \
-  unixodbc-dev \
-  libwxbase2.8 \
-  libwxgtk2.8-dev \
-  libqt4-opengl-dev \
-  libpam-dev
+  libjemalloc-dev
 
-# Install Riak
-wget http://s3.amazonaws.com/downloads.basho.com/riak/2.0/2.0.7/ubuntu/trusty/riak_2.0.7-1_amd64.deb
-sudo dpkg -i riak*.deb
-rm riak*.deb
+# Install RethinkDB
+wget http://download.rethinkdb.com/apt/pool/xenial/main/r/rethinkdb/rethinkdb_2.3.5~0xenial_amd64.deb
+sudo dpkg -i rethinkdb*.deb
+rm rethinkdb*.deb
