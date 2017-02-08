@@ -1,0 +1,11 @@
+#!/bin/bash -e
+service_name=$1
+service_action=$2
+
+if  [ $service_action != "start" ] &&  [ $service_action != "stop" ]
+then
+    echo "Invalid service parameter $service_action"
+    exit
+fi
+
+./$service_name.sh $service_action

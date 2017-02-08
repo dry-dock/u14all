@@ -2,22 +2,19 @@
 
 echo "================= Installing Riak ==================="
 
+apt-get update
 # Install dependencies
 sudo apt-get install -y \
+  m4 \
   build-essential \
-  libc6-dev-i386 \
+  protobuf-compiler \
+  python \
+  libprotobuf8 \
+  libcurl4-openssl-dev \
+  libboost-all-dev \
   libncurses5-dev \
-  openssl \
-  libssl-dev \
-  fop \
-  xsltproc \
-  unixodbc-dev \
-  libwxbase2.8 \
-  libwxgtk2.8-dev \
-  libqt4-opengl-dev \
-  libpam-dev
-
-# Install Riak
-wget http://s3.amazonaws.com/downloads.basho.com/riak/2.0/2.0.7/ubuntu/trusty/riak_2.0.7-1_amd64.deb
+  libjemalloc-dev
+#install Riak
+wget http://s3.amazonaws.com/downloads.basho.com/riak/2.2/2.2.0/ubuntu/trusty/riak_2.2.0-1_amd64.deb
 sudo dpkg -i riak*.deb
 rm riak*.deb

@@ -9,7 +9,7 @@ mkdir /var/log/mysql
 
 echo "=========== Downloading mysql 5.6 ==============="
 cd /usr/local
-wget -O mysql-5.6.33-linux-glibc2.5-x86_64.tar.gz http://cdn.mysql.com//Downloads/MySQL-5.6/mysql-5.6.33-linux-glibc2.5-x86_64.tar.gz
+wget -O mysql-5.6.33-linux-glibc2.5-x86_64.tar.gz http://dev.mysql.com/Downloads/MySQL-5.6/mysql-5.6.33-linux-glibc2.5-x86_64.tar.gz
 tar xvfz mysql-5.6.33-linux-glibc2.5-x86_64.tar.gz
 mv mysql-5.6.33-linux-glibc2.5-x86_64 mysql
 rm mysql-5.6.33-linux-glibc2.5-x86_64.tar.gz
@@ -24,6 +24,7 @@ chown -R mysql data
 cp support-files/mysql.server /etc/init.d/mysql.server
 
 echo "=========== Installing mysql clients 5.6 ==============="
+apt-get update
 apt-get install mysql-client-5.6
 
 ln -sf /usr/local/mysql/bin/mysqld_safe /usr/bin/mysqld_safe
