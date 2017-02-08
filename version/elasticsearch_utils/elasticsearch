@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+#make sure elasticsearch is installed at /usr/local/elasticsearch/bin/
+gosu elasticsearch /usr/local/elasticsearch/bin/elasticsearch $@

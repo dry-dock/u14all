@@ -2,7 +2,7 @@
 
 sudo chmod 1777 /tmp
 
-for file in /u14all/version/*;
+for file in /u14all/version/*.sh;
 do
   . $file
 done
