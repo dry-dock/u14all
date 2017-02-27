@@ -1,0 +1,23 @@
+#!/bin/bash -e
+service_name=$1
+service_action=$2
+script_dir=$(dirname "$0")
+services_dir="$script_dir/shippable_services"
+
+if [ "$service_name" == "" ] || [ "$service_action" == "" ]; then
+  echo "Usage: shippable_service SERVICE COMMAND"
+  exit 1
+fi
+
+service_script="$services_dir/$service_name.sh"
+if [ ! -f "$service_script" ]; then
+  echo "Unknown service: $service_name"
+  exit 1
+fi
+
+if  [ "$service_action" != "start" ] &&  [ "$service_action" != "stop" ]; then
+  echo "Unknown service command: $service_action"
+  exit 1
+fi
+
+"$service_script" "$service_action"

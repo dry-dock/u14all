@@ -15,12 +15,12 @@ start_generic_service() {
   service_port=$4
 
 
-  if [ -f $binary ]; then
+  if [ -f "$binary" ]; then
     sudo su -c "$service_cmd > /dev/null 2>&1 &";
     sleep 5
 
     ## check if the service port is reachable
-    while ! nc -vz localhost $service_port &>/dev/null; do
+    while ! nc -vz localhost "$service_port" &>/dev/null; do
 
       ## check service process PID
       service_proc=$(pgrep -f "$binary" || echo "")
@@ -42,16 +42,18 @@ start_generic_service() {
   fi
 }
 
-if [ $service_cmd = 'start' ]
+if [ "$service_cmd" = 'start' ]
 then
   echo "================= Starting Elasticsearch ==================="
   printf "\n"
   start_generic_service "elasticsearch" "$SHIPPABLE_ES_BINARY" "$SHIPPABLE_ES_CMD" "$SHIPPABLE_ES_PORT";
-elif [ $service_cmd = 'stop' ]
+elif [ "$service_cmd" = 'stop' ]
 then
   echo "================= Stopping Elasticsearch ==================="
   printf "\n"
-  kill -9 `ps aux | grep elasticsearch | awk '{print $2}'`
+  # This script is also called elasticsearch. We need to make sure we don't kill
+  # ourselves
+  kill -9 $(ps aux | grep elasticsearch | grep -v shippable_service | awk '{print $2}')
 else
   echo "Failed to execute the action"
 fi

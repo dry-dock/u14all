@@ -14,12 +14,12 @@ start_generic_service() {
   service_port=$4
 
 
-  if [ -f $binary ]; then
+  if [ -f "$binary" ]; then
     sudo su -c "$service_cmd > /dev/null 2>&1 &";
     sleep 5
 
     ## check if the service port is reachable
-    while ! nc -vz localhost $service_port &>/dev/null; do
+    while ! nc -vz localhost "$service_port" &>/dev/null; do
 
       ## check service process PID
       service_proc=$(pgrep -f "$binary" || echo "")
@@ -40,13 +40,13 @@ start_generic_service() {
     exit 99
   fi
 }
-if [ $1 = "start" ]
+if [ "$1" = "start" ]
 then
   echo "================= Starting neo4j ==================="
   printf "\n"
   start_generic_service "neo4j" "$SHIPPABLE_NEO4J_BINARY" "$SHIPPABLE_NEO4J_CMD" "$SHIPPABLE_NEO4J_PORT" "$SHIPPABLE_NEO4J_LOG";
 
-elif [ $1 = "stop" ]
+elif [ "$1" = "stop" ]
 then
   echo "================= Stopping neo4j ==================="
   printf "\n"
