@@ -11,12 +11,12 @@ start_generic_service() {
   service_port=$4
 
 
-  if [ -f $binary ]; then
+  if [ -f "$binary" ]; then
     sudo su -c "$service_cmd > /dev/null 2>&1 &";
     sleep 5
 
     ## check if the service port is reachable
-    while ! nc -vz localhost $service_port &>/dev/null; do
+    while ! nc -vz localhost "$service_port" &>/dev/null; do
 
       ## check service process PID
       service_proc=$(pgrep -f "$binary" || echo "")
@@ -34,17 +34,17 @@ start_generic_service() {
     echo "$name started successfully";
   else
     echo "$name will not be started because the binary was not found at $binary."
-    exit 99  
+    exit 99
   fi
 }
-if [ $1 = "start" ]
+if [ "$1" = "start" ]
 then
-  echo "================= Starting redismq ==================="
+  echo "================= Starting redis ==================="
   printf "\n"
   start_generic_service "redis" "$SHIPPABLE_REDIS_BINARY" "$SHIPPABLE_REDIS_CMD" "$SHIPPABLE_REDIS_PORT";
-elif [ $1 = "stop" ]
+elif [ "$1" = "stop" ]
 then
-  echo "================= Stopping reddismq ==================="
+  echo "================= Stopping redis ==================="
   printf "\n"
   su -c "redis-cli shutdown";
 else

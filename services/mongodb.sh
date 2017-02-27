@@ -12,12 +12,12 @@ start_generic_service() {
   service_port=$4
 
 
-  if [ -f $binary ]; then
+  if [ -f "$binary" ]; then
     sudo su -c "$service_cmd > /dev/null 2>&1 &";
     sleep 5
 
     ## check if the service port is reachable
-    while ! nc -vz localhost $service_port &>/dev/null; do
+    while ! nc -vz localhost "$service_port" &>/dev/null; do
 
       ## check service process PID
       service_proc=$(pgrep -f "$binary" || echo "")
@@ -35,20 +35,16 @@ start_generic_service() {
     echo "$name started successfully";
   else
     echo "$name will not be started because the binary was not found at $binary."
-    exit 99 
+    exit 99
  fi
 }
-if [ $1=="start" ]
-then
+if [ "$1" == "start" ]; then
   echo "================= Starting mongo ==================="
   printf "\n"
   start_generic_service "mongodb" "$SHIPPABLE_MONGODB_BINARY" "$SHIPPABLE_MONGODB_CMD" "$SHIPPABLE_MONGODB_PORT";
-elif [ $2="sttop" ]
-then
+elif [ "$1" == "stop" ]; then
   echo "================= Stopping mongo ==================="
   printf "\n"
   sudo su -c "/usr/bin/mongod -f /etc/mongod.conf --shutdown";
   sudo su -c "rm -rf /var/lib/mongodb/*";
-else
-  echo "No action executed"
 fi

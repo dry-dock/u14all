@@ -14,12 +14,12 @@ start_generic_service() {
   service_port=$4
 
 
-  if [ -f $binary ]; then
+  if [ -f "$binary" ]; then
     sudo su -c "$service_cmd > /dev/null 2>&1 &";
     sleep 5
 
     ## check if the service port is reachable
-    while ! nc -vz localhost $service_port &>/dev/null; do
+    while ! nc -vz localhost "$service_port" &>/dev/null; do
 
       ## check service process PID
       service_proc=$(pgrep -f "$binary" || echo "")
@@ -40,18 +40,18 @@ start_generic_service() {
   fi
 }
 
-if [ $1 = 'start' ]
+if [ "$1" = 'start' ]
 then
   echo "================= Starting mysql ==================="
   printf "\n"
   start_generic_service "mysql" "$SHIPPABLE_MYSQL_BINARY" "$SHIPPABLE_MYSQL_CMD" "$SHIPPABLE_MYSQL_PORT";
   printf "\n\n"
-elif [ $1 = 'stop' ]
+elif [ "$1" = 'stop' ]
 then
   echo "================= Stopping mysql ==================="
   printf "\n"
   sleep 10
-  sudo kill -9 $(pgrep -f mysql)
+  mysqladmin shutdown
   printf "\n\n"
 else
   echo "Failed to execute the action"

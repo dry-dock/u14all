@@ -3,7 +3,7 @@
 if [ -z "$SHIPPABLE_SELENIUM_BINARY" ]; then
 	export SHIPPABLE_SELENIUM_BINARY="/usr/local/selenium/selenium-server-standalone-3.0.1.jar";
 fi
-if [ -z "$SHIPPABLE_SELENIUM_PORT"]; then
+if [ -z "$SHIPPABLE_SELENIUM_PORT" ]; then
 	export SHIPPABLE_SELENIUM_PORT=4444;
 fi
 if [ -z "$SHIPPABLE_SELENIUM_CMD" ]; then
@@ -18,12 +18,12 @@ start_generic_service() {
   service_port=$4
 
 
-  if [ -f $binary ]; then
+  if [ -f "$binary" ]; then
     sudo su -c "$service_cmd > /dev/null 2>&1 &";
     sleep 5
 
     ## check if the service port is reachable
-    while ! nc -vz localhost $service_port &>/dev/null; do
+    while ! nc -vz localhost "$service_port" &>/dev/null; do
 
       ## check service process PID
       service_proc=$(pgrep -f "$binary" || echo "")
@@ -45,13 +45,13 @@ start_generic_service() {
  fi
 }
 
-if [ $service_cmd = 'start' ]
+if [ "$service_cmd" = 'start' ]
 then
   echo "================= Starting Selenium ==================="
   printf "\n"
   start_generic_service "selenium" "$SHIPPABLE_SELENIUM_BINARY" "$SHIPPABLE_SELENIUM_CMD" "$SHIPPABLE_SELENIUM_PORT";
   printf "\n\n"
-elif [ $service_cmd = 'stop' ]
+elif [ "$service_cmd" = 'stop' ]
 then
   echo "================= Stopping Selenium ==================="
   printf "\n"

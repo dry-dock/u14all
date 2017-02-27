@@ -13,15 +13,17 @@ start_generic_service() {
   service_port=$4
 
 
-  if [ -f $binary ]; then
+  if [ -f "$binary" ]; then
     sudo su -c "$service_cmd > /dev/null 2>&1 &";
     sleep 5
 
     ## check if the service port is reachable
-    while ! nc -vz localhost $service_port &>/dev/null; do
+    while ! nc -vz localhost "$service_port" &>/dev/null; do
 
       ## check service process PID
-      service_proc=$(pgrep -f "$binary" || echo "")
+      # cassandra is special because the binary we use to launch the server
+      # isn't what actually ends up running later...
+      service_proc=$(pgrep -f "cassandra" || echo "")
 
       if [ ! -z "$service_proc" ]; then
         ## service PID exists, service is starting. Hence wait...
@@ -36,18 +38,18 @@ start_generic_service() {
     echo "$name started successfully";
   else
     echo "$name will not be started because the binary was not found at $binary."
-    exit 99 
+    exit 99
  fi
 
 }
 
-if [ $service_cmd = 'start' ]
+if [ "$service_cmd" = 'start' ]
 then
   echo "================= Starting Cassandra ==================="
   printf "\n"
   start_generic_service "Cassandra" "$SHIPPABLE_CASSANDRA_BINARY" "$SHIPPABLE_CASSANDRA_CMD" "$SHIPPABLE_CASSANDRA_PORT"
   printf "\n\n"
-elif [ $service_cmd = 'stop' ]
+elif [ "$service_cmd" = 'stop' ]
 then
   echo "================= Stopping Cassandra ==================="
   printf "\n"
