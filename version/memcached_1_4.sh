@@ -4,7 +4,7 @@ MEM_VERSION=1.4.32
 LIB_VERSION=1.0.18
 
 echo "================= Installing MemCached Prereqs ==================="
-sudo apt-get install -y libevent-dev
+sudo apt-get install -y libevent-dev libsasl2-dev
 
 # Add memcache user to run the daemon later
 sudo groupadd -r memcache
