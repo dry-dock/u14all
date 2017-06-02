@@ -32,7 +32,7 @@ sudo apt-get install -y -f
 sudo rm -f google-chrome-stable_current_amd64.deb
 
 echo "================= Installing Chrome driver ==================="
-sudo wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
+sudo wget http://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
 sudo unzip chromedriver_linux64.zip && sudo rm -f chromedriver_linux64.zip
 sudo mv chromedriver /usr/local/bin/chromedriver
 sudo chmod a+x /usr/local/bin/chromedriver
@@ -53,7 +53,7 @@ sudo apt-get install -y opera
 
 echo "================= Installing Selenium ==================="
 sudo mkdir /usr/local/selenium >/dev/null 2>&1
-sudo wget http://selenium-release.storage.googleapis.com/3.0/selenium-server-standalone-3.0.1.jar -P /usr/local/selenium
+sudo wget http://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar -P /usr/local/selenium
 
 echo "================= Removing google chrome from updation list ==================="
 rm -f /etc/apt/sources.list.d/google-chrome.list
