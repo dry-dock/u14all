@@ -1,6 +1,6 @@
 #!/bin/bash -e
 # Begin service ENV variables
-source "$(dirname $0)/postgres_env.sh"
+source "$(dirname "$0")/postgres_env.sh"
 # End service ENV variables
 service_cmd=$1
 
