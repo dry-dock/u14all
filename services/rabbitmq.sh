@@ -1,8 +1,6 @@
 #!/bin/bash -e
 # Begin service ENV variables
-export SHIPPABLE_RABBITMQ_PORT=5672;
-export SHIPPABLE_RABBITMQ_BINARY="/usr/sbin/rabbitmq-server";
-export SHIPPABLE_RABBITMQ_CMD="$SHIPPABLE_RABBITMQ_BINARY";
+source "$(dirname "$0")/rabbitmq_env.sh"
 # End service ENV variables
 
 start_generic_service() {

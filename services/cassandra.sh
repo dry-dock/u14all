@@ -1,9 +1,6 @@
 #!/bin/bash -e
 # Begin service ENV variables
-export SHIPPABLE_CASSANDRA_PORT=9042;
-export SHIPPABLE_CASSANDRA_BINARY="/usr/sbin/cassandra";
-export SHIPPABLE_CASSANDRA_CMD="$SHIPPABLE_CASSANDRA_BINARY -R";
-export SHIPPABLE_CASSANDRA_LOG="/var/log/cassandra/system.log"
+source "$(dirname "$0")/cassandra_env.sh"
 # End service ENV variables
 service_cmd=$1
 start_generic_service() {

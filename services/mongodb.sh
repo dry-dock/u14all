@@ -1,8 +1,6 @@
 #!/bin/bash -e
 # Begin service ENV variables
-export SHIPPABLE_MONGODB_PORT=27017;
-export SHIPPABLE_MONGODB_BINARY="/usr/bin/mongod";
-export SHIPPABLE_MONGODB_CMD="$SHIPPABLE_MONGODB_BINARY -f /etc/mongod.conf --smallfiles";
+source "$(dirname "$0")/mongodb_env.sh"
 # End service ENV variables
 
 start_generic_service() {

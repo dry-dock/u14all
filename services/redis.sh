@@ -1,8 +1,6 @@
 #!/bin/bash -e
 # Begin service ENV variables
-export SHIPPABLE_REDIS_PORT=6379;
-export SHIPPABLE_REDIS_BINARY="/usr/bin/redis-server";
-export SHIPPABLE_REDIS_CMD="$SHIPPABLE_REDIS_BINARY";
+source "$(dirname "$0")/redis_env.sh"
 # End service ENV variables
 start_generic_service() {
   name=$1

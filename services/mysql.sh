@@ -1,9 +1,6 @@
 #!/bin/bash -e
 # Begin service ENV variables
-export SHIPPABLE_START_MYSQL=true;
-export SHIPPABLE_MYSQL_PORT=3306;
-export SHIPPABLE_MYSQL_BINARY="/usr/bin/mysqld_safe";
-export SHIPPABLE_MYSQL_CMD="$SHIPPABLE_MYSQL_BINARY";
+source "$(dirname "$0")/mysql_env.sh"
 # End service ENV variables
 service_cmd=$1
 

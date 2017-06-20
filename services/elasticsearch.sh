@@ -1,10 +1,6 @@
 #!/bin/bash -e
 # Begin service ENV variables
-export SHIPPABLE_ES_CLUSTER_NAME=shippabletest;
-export SHIPPABLE_ES_PORT=9200;
-export SHIPPABLE_ES_BINARY="/usr/local/bin/elasticsearch";
-export SHIPPABLE_ES_TMP=/usr/local/elasticsearch/tmp
-export SHIPPABLE_ES_CMD="ES_JAVA_OPTS=\"-Djna.tmpdir=$SHIPPABLE_ES_TMP -Djava.io.tmpdir=$SHIPPABLE_ES_TMP\" $SHIPPABLE_ES_BINARY -Ecluster.name=$SHIPPABLE_ES_CLUSTER_NAME";
+source "$(dirname "$0")/elasticsearch_env.sh"
 # End service ENV variables
 
 service_cmd=$1
