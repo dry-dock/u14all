@@ -1,9 +1,6 @@
 #!/bin/bash -e
 # Begin service ENV variables
-export SHIPPABLE_COUCHDB_PORT=5984;
-export SHIPPABLE_COUCHDB_BINARY="/usr/bin/couchdb";
-export SHIPPABLE_COUCHDB_CMD="$SHIPPABLE_COUCHDB_BINARY -b";
-export SHIPPABLE_COUCHDB_LOG="couchdb.stderr"
+source "$(dirname "$0")/couchdb_env.sh"
 # End service ENV variables
 
 service_cmd=$1

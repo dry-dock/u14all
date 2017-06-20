@@ -1,8 +1,6 @@
 #!/bin/bash -e
 # Begin service ENV variables
-export SHIPPABLE_MEMCACHED_PORT=11211;
-export SHIPPABLE_MEMCACHED_BINARY="/usr/local/bin/memcached";
-export SHIPPABLE_MEMCACHED_CMD="$SHIPPABLE_MEMCACHED_BINARY -d -u nobody -l 127.0.0.1 -p $SHIPPABLE_MEMCACHED_PORT";
+source "$(dirname "$0")/memcached_env.sh"
 # End service ENV variables
 service_cmd=$1
 start_generic_service() {

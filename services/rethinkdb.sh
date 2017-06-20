@@ -1,9 +1,6 @@
 #!/bin/bash -e
 # Begin service ENV variables
-export SHIPPABLE_RETHINKDB_PORT=28015;
-export SHIPPABLE_RETHINKDB_BINARY="/usr/bin/rethinkdb";
-export SHIPPABLE_RETHINKDB_CMD="($SHIPPABLE_RETHINKDB_BINARY create -d /tmp/100 && $SHIPPABLE_RETHINKDB_BINARY serve -d /tmp/100)";
-export SHIPPABLE_RETHINKDB_LOG="/var/log/rethinkdb_data/log_file"
+source "$(dirname "$0")/rethinkdb_env.sh"
 # End service ENV variables
 
 service_cmd=$1
