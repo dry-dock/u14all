@@ -8,7 +8,7 @@ if [ -z "$SHIPPABLE_COUCHDB_BINARY" ]; then
   export SHIPPABLE_COUCHDB_BINARY="/usr/bin/couchdb";
 fi
 
-if [ -z "$SHIPPABLE_CASSANDRA_CMD" ]; then
+if [ -z "$SHIPPABLE_COUCHDB_CMD" ]; then
   export SHIPPABLE_COUCHDB_CMD="$SHIPPABLE_COUCHDB_BINARY -b";
 fi
 
