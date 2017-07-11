@@ -45,7 +45,7 @@ elif [ "$1" = "stop" ]
 then
   echo "================= Stopping rabbitmq ==================="
   printf "\n"
-  true;
+  sudo -u rabbitmq rabbitmqctl shutdown
 else
   echo "No action executed"
 fi
