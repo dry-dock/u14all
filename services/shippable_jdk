@@ -1,0 +1,57 @@
+#!/bin/bash -e
+export service_action=$1
+export JDK_VERSION=$2
+
+shippable_jdk() {
+  if [ "$JDK_VERSION" == "openjdk7" ]; then
+    export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64";
+    export PATH="$PATH:/usr/lib/jvm/java-7-openjdk-amd64/bin";
+    java_path="/usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java";
+    javac_path="/usr/lib/jvm/java-7-openjdk-amd64/bin/javac";
+  elif [ "$JDK_VERSION" == "openjdk8" ]; then
+    export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+    export PATH="$PATH:/usr/lib/jvm/java-8-openjdk-amd64/bin";
+    java_path="/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java";
+    javac_path="/usr/lib/jvm/java-8-openjdk-amd64/bin/javac";
+  elif [ "$JDK_VERSION" == "openjdk9" ]; then
+    export JAVA_HOME="/usr/lib/jvm/java-9-openjdk-amd64";
+    export PATH="$PATH:/usr/lib/jvm/java-9-openjdk-amd64/bin";
+    java_path="/usr/lib/jvm/java-9-openjdk-amd64/bin/java";
+    javac_path="/usr/lib/jvm/java-9-openjdk-amd64/bin/javac";
+  elif [ "$JDK_VERSION" == "oraclejdk8" ]; then
+    export JAVA_HOME="/usr/lib/jvm/java-8-oracle";
+    export PATH="$PATH:/usr/lib/jvm/java-8-oracle/bin";
+    java_path="/usr/lib/jvm/java-8-oracle/jre/bin/java";
+    javac_path="/usr/lib/jvm/java-8-oracle/bin/javac";
+  elif [ "$JDK_VERSION" == "oraclejdk9" ]; then
+    export JAVA_HOME="/usr/lib/jvm/java-9-oracle";
+    export PATH="$PATH:/usr/lib/jvm/java-9-oracle/bin";
+    java_path="/usr/lib/jvm/java-9-oracle/bin/java";
+    javac_path="/usr/lib/jvm/java-9-oracle/bin/javac";
+  else
+    echo "The version of the jdk you are trying to use is not supported. The supported versions include openjdk7, openjdk8, openjdk9, oraclejdk8, oraclejdk9"
+    exit 99
+  fi
+
+  if [ -f $java_path ]; then
+    sudo update-alternatives --set java $java_path
+  fi
+  if [ -f $javac_path ]; then
+    sudo update-alternatives --set javac $javac_path
+  fi
+
+  java -version
+}
+
+if [ "$JDK_VERSION" == "" ] || [ "$service_action" == "" ]; then
+  echo "Usage: shippable_jdk set openjdk9"
+  exit 1
+fi
+
+if  [ "$service_action" != "set" ]; then
+  echo "Unknown command: $service_action"
+  echo "Usage: shippable_jdk set openjdk9"
+  exit 1
+fi
+
+shippable_jdk

@@ -20,6 +20,7 @@ echo "================= Adding shippable_service ==================="
 mkdir -p /usr/local/bin/shippable_services
 cp /u14all/services/* /usr/local/bin/shippable_services
 mv /usr/local/bin/shippable_services/shippable_service /usr/local/bin/shippable_service
+mv /usr/local/bin/shippable_services/shippable_jdk /usr/local/bin/shippable_jdk
 
 echo "================= Adding packages for shippable_service =================="
 apt install -y netcat
