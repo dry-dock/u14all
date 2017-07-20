@@ -29,11 +29,8 @@ shippable_jdk() {
     java_path="/usr/lib/jvm/java-9-oracle/bin/java";
     javac_path="/usr/lib/jvm/java-9-oracle/bin/javac";
   else
-    export SHIPPABLE_JDK_VERSION="oraclejdk8"
-    export JAVA_HOME="/usr/lib/jvm/java-8-oracle";
-    export PATH="$PATH:/usr/lib/jvm/java-8-oracle/bin";
-    java_path="/usr/lib/jvm/java-8-oracle/jre/bin/java";
-    javac_path="/usr/lib/jvm/java-8-oracle/bin/javac";
+    echo "The version of the jdk you are trying to use is not supported. The supported versions include openjdk7, openjdk8, openjdk9, oraclejdk8, oraclejdk9"
+    exit 99
   fi
 
   if [ -f $java_path ]; then
