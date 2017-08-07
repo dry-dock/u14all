@@ -15,7 +15,7 @@ sudo apt-get install -y \
   libjemalloc-dev
 
 # Install RethinkDB
-wget http://download.rethinkdb.com/apt/pool/trusty/main/r/rethinkdb/rethinkdb_2.3.5~0trusty_amd64.deb
+wget http://download.rethinkdb.com/apt/pool/trusty/main/r/rethinkdb/rethinkdb_2.3.6~0trusty_amd64.deb
 sudo dpkg -i rethinkdb*.deb
 rm rethinkdb*.deb
 # Start the service
