@@ -42,6 +42,9 @@ then
   echo "================= Starting mysql ==================="
   printf "\n"
   start_generic_service "mysql" "$SHIPPABLE_MYSQL_BINARY" "$SHIPPABLE_MYSQL_CMD" "$SHIPPABLE_MYSQL_PORT";
+
+  # create symlink for socket as /tmp is destroyed across restarts
+  sudo ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock
   printf "\n\n"
 elif [ "$1" = 'stop' ]
 then
