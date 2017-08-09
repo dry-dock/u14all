@@ -23,9 +23,6 @@ chown -R root .
 chown -R mysql data
 cp support-files/mysql.server /etc/init.d/mysql.server
 
-# fixes support issue https://github.com/Shippable/support/issues/3736
-ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock
-
 echo "=========== Installing mysql clients 5.6 ==============="
 apt-get update
 apt-get install mysql-client-5.6
