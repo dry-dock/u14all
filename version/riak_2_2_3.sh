@@ -15,6 +15,6 @@ sudo apt-get install -y \
   libncurses5-dev \
   libjemalloc-dev
 #install Riak
-wget http://s3.amazonaws.com/downloads.basho.com/riak/2.2/2.2.3/ubuntu/trusty/riak_2.2.3-1_amd64.deb
-sudo dpkg -i riak*.deb
-rm riak*.deb
+curl -s https://packagecloud.io/install/repositories/basho/riak/script.deb.sh | sudo bash
+apt-get install riak=2.2.3-1
+
