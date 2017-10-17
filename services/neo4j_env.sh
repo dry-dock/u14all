@@ -6,11 +6,11 @@ if [ -z "$SHIPPABLE_NEO4J_PORT" ]; then
 fi
 
 if [ -z "$SHIPPABLE_NEO4J_BINARY" ]; then
-  export SHIPPABLE_NEO4J_BINARY="/var/lib/neo4j/bin/neo4j";
+  export SHIPPABLE_NEO4J_BINARY="/usr/bin/neo4j";
 fi
 
 if [ -z "$SHIPPABLE_NEO4J_CMD" ]; then
-  export SHIPPABLE_NEO4J_CMD="$SHIPPABLE_NEO4J_BINARY start";
+  export SHIPPABLE_NEO4J_CMD="service neo4j";
 fi
 
 if [ -z "$SHIPPABLE_NEO4J_LOG" ]; then

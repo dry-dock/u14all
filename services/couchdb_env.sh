@@ -5,11 +5,11 @@ if [ -z "$SHIPPABLE_COUCHDB_PORT" ]; then
 fi
 
 if [ -z "$SHIPPABLE_COUCHDB_BINARY" ]; then
-  export SHIPPABLE_COUCHDB_BINARY="/usr/bin/couchdb";
+  export SHIPPABLE_COUCHDB_BINARY="/opt/couchdb/bin/couchdb";
 fi
 
 if [ -z "$SHIPPABLE_COUCHDB_CMD" ]; then
-  export SHIPPABLE_COUCHDB_CMD="$SHIPPABLE_COUCHDB_BINARY -b";
+  export SHIPPABLE_COUCHDB_CMD="service couchdb";
 fi
 
 if [ -z "$SHIPPABLE_COUCHDB_LOG" ]; then
