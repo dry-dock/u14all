@@ -3,8 +3,7 @@
 echo "================= setting MySQL preReqs ==================="
 sudo groupadd mysql
 sudo useradd -g mysql mysql
-apt-get install libaio1
-apt-get install numactl
+apt-get install libaio1 numactl
 mkdir -p /etc/mysql
 mkdir /var/log/mysql
 
@@ -28,3 +27,10 @@ ln -sf /usr/local/mysql/bin/mysqld_safe /usr/bin/mysqld_safe
 #create and assign permissions to directories
 mkdir -p /var/log/mysql
 chown -R mysql /var/log/mysql
+
+mkdir -p /var/run/mysqld
+chown -R mysql /var/run/mysqld
+chown -R mysql /usr/local/mysql
+
+echo "=========== Installing mysql clients 5.6 ==============="
+apt-get install mysql-client-5.6
