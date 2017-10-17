@@ -2,7 +2,7 @@
 # Begin service ENV variables
 export SHIPPABLE_NEO4J_PORT=7474;
 export SHIPPABLE_NEO4J_BINARY="/usr/bin/neo4j";
-export SHIPPABLE_NEO4J_CMD="$SHIPPABLE_NEO4J_BINARY start";
+export SHIPPABLE_NEO4J_CMD="service neo4j start";
 export SHIPPABLE_NEO4J_LOG="/var/log/neo4j/neo4j.log"
 
 # End service ENV variables
@@ -18,7 +18,7 @@ start_service() {
 # Function to STOP
 #
 stop_service() {
-  sudo su -c "$SHIPPABLE_NEO4J_BINARY stop 2>&1 > /dev/null &";
+  sudo su -c "service neo4j stop 2>&1 > /dev/null &";
 }
 
 source /u14all/test/function_start_generic.sh
