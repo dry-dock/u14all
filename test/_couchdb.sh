@@ -1,8 +1,8 @@
 #!/bin/bash -e
 # Begin service ENV variables
 export SHIPPABLE_COUCHDB_PORT=5984;
-export SHIPPABLE_COUCHDB_BINARY="/usr/bin/couchdb";
-export SHIPPABLE_COUCHDB_CMD="$SHIPPABLE_COUCHDB_BINARY -b";
+export SHIPPABLE_COUCHDB_BINARY="/opt/couchdb/bin/couchdb";
+export SHIPPABLE_COUCHDB_CMD="service couchdb start";
 export SHIPPABLE_COUCHDB_LOG="couchdb.stderr"
 # End service ENV variables
 
@@ -17,7 +17,7 @@ start_service() {
 # Function to STOP
 #
 stop_service() {
-  sudo su -c "$SHIPPABLE_COUCHDB_BINARY -d";
+  sudo su -c "service couchdb stop";
 }
 
 source /u14all/test/function_start_generic.sh

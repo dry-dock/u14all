@@ -13,7 +13,7 @@ start_generic_service() {
     while ! nc -vz localhost $service_port &>/dev/null; do
 
       ## check service process PID
-      service_proc=$(pgrep -f "$binary" || echo "")
+      service_proc=$(pgrep -f "$name" || echo "")
 
       if [ ! -z "$service_proc" ]; then
         ## service PID exists, service is starting. Hence wait...
@@ -33,4 +33,3 @@ start_generic_service() {
     fi
   fi
 }
-

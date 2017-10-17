@@ -12,14 +12,14 @@ start_generic_service() {
 
 
   if [ -f "$binary" ]; then
-    sudo su -c "$service_cmd > /dev/null 2>&1 &";
+    sudo su -c "$service_cmd start > /dev/null 2>&1 &";
     sleep 5
 
     ## check if the service port is reachable
     while ! nc -vz localhost "$service_port" &>/dev/null; do
 
       ## check service process PID
-      service_proc=$(pgrep -f "$binary" || echo "")
+      service_proc=$(pgrep -f "$name" || echo "")
 
       if [ ! -z "$service_proc" ]; then
         ## service PID exists, service is starting. Hence wait...
@@ -48,7 +48,7 @@ elif [ "$service_cmd" = 'stop' ]
 then
   echo "================= Stopping Couchdb ==================="
   printf "\n"
-  su -c "$SHIPPABLE_COUCHDB_BINARY -d";
+  su -c "$SHIPPABLE_COUCHDB_CMD stop";
   printf "\n\n"
 else
   echo "Failed to execute the action"
