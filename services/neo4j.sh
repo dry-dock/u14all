@@ -12,14 +12,14 @@ start_generic_service() {
 
 
   if [ -f "$binary" ]; then
-    sudo su -c "$service_cmd start > /dev/null 2>&1 &";
+    sudo su -c "$service_cmd > /dev/null 2>&1 &";
     sleep 5
 
     ## check if the service port is reachable
     while ! nc -vz localhost "$service_port" &>/dev/null; do
 
       ## check service process PID
-      service_proc=$(pgrep -f "$name" || echo "")
+      service_proc=$(pgrep -f "$binary" || echo "")
 
       if [ ! -z "$service_proc" ]; then
         ## service PID exists, service is starting. Hence wait...
@@ -47,7 +47,7 @@ elif [ "$1" = "stop" ]
 then
   echo "================= Stopping neo4j ==================="
   printf "\n"
- su -c "$SHIPPABLE_NEO4J_CMD stop 2>&1 > /dev/null &";
+ su -c "$SHIPPABLE_NEO4J_BINARY stop 2>&1 > /dev/null &";
 else
   echo "No action executed"
 fi
