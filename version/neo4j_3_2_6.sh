@@ -1,14 +1,13 @@
 #!/bin/bash -e
 
 NEO4J_VERSION=3.2.6
-echo "=========== Installing neo4j $NEO4J_VERSION ============="
+echo "=========== Installing neo4j $NEO4J_VERSION ==============="
 
-# Install prerequisites
-sudo apt-get install -y lsof
+NEO4J_TARBALL=neo4j-community-"$NEO4J_VERSION"-unix.tar.gz
 
-# Install Neo4j
-wget -O - https://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
-echo 'deb http://debian.neo4j.org/repo stable/' >/tmp/neo4j.list
-sudo mv /tmp/neo4j.list /etc/apt/sources.list.d
-sudo apt-get update
-sudo apt-get install neo4j=${NEO4J_VERSION}
+NEO4J_URI=https://neo4j.com/artifact.php?name=neo4j-community-"$NEO4J_VERSION"-unix.tar.gz
+
+curl --fail --show-error -o ${NEO4J_TARBALL} ${NEO4J_URI} \
+    && tar --extract --file ${NEO4J_TARBALL} --directory /var/lib \
+    && mv /var/lib/neo4j-* /var/lib/neo4j \
+    && rm ${NEO4J_TARBALL}
