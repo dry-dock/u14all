@@ -1,8 +1,7 @@
 #!/bin/bash -e
 
-echo "================= Installing CouchDB 2.1.0 ==================="
-
-VERSION=2.1.0
+VERSION=2.1.1
+echo "================= Installing CouchDB $VERSION ==================="
 
 # Install CouchDB
 sudo apt-get install software-properties-common -y
@@ -14,4 +13,4 @@ sudo apt-get update
 sudo apt-get remove couchdb couchdb-bin couchdb-common -yf
 
 echo "couchdb couchdb/mode select none" | debconf-set-selections
-DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes couchdb
+DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes couchdb="$VERSION"*

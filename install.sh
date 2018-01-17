@@ -14,7 +14,7 @@ echo "================= Adding mysql cnf ==================="
 cd /u14all && cp -rf my.cnf /etc/mysql/my.cnf
 
 echo "================= Adding PostgreSQL cnf ==================="
-cd /u14all && cp -rf pg_hba.cnf /etc/postgresql/9.6/main/pg_hba.conf
+cd /u14all && cp -rf pg_hba.cnf /etc/postgresql/10/main/pg_hba.conf
 
 echo "================= Adding shippable_service ==================="
 mkdir -p /usr/local/bin/shippable_services
