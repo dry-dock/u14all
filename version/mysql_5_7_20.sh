@@ -7,12 +7,13 @@ apt-get install libaio1 numactl
 mkdir -p /etc/mysql
 mkdir /var/log/mysql
 
-echo "=========== Downloading mysql 5.7.19 ==============="
+MYSQL_VERSION=5.7.20
+echo "=========== Downloading mysql $MYSQL_VERSION ==============="
 cd /usr/local
-wget -O mysql-5.7.19-linux-glibc2.12-x86_64.tar.gz https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.19-linux-glibc2.12-x86_64.tar.gz
-tar xvfz mysql-5.7.19-linux-glibc2.12-x86_64.tar.gz
-mv mysql-5.7.19-linux-glibc2.12-x86_64 mysql
-rm mysql-5.7.19-linux-glibc2.12-x86_64.tar.gz
+wget -O mysql-"$MYSQL_VERSION"-linux-glibc2.12-x86_64.tar.gz https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-"$MYSQL_VERSION"-linux-glibc2.12-x86_64.tar.gz
+tar xvfz mysql-"$MYSQL_VERSION"-linux-glibc2.12-x86_64.tar.gz
+mv mysql-"$MYSQL_VERSION"-linux-glibc2.12-x86_64 mysql
+rm mysql-"$MYSQL_VERSION"-linux-glibc2.12-x86_64.tar.gz
 cd mysql
 mkdir mysql-files
 chmod 750 mysql-files
