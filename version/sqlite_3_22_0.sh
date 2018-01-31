@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-SQLITE_VERSION=3.21.0
+SQLITE_VERSION=3.22.0
 echo "================= Installing SQLite $SQLITE_VERSION ==================="
 
 sudo add-apt-repository ppa:jonathonf/backports
