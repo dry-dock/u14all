@@ -34,6 +34,7 @@ start_generic_service() {
     echo "$name started successfully";
   else
     echo "$name will not be started because the binary was not found at $binary."
+    exit 1
   fi
 }
 
