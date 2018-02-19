@@ -1,9 +1,10 @@
 #!/bin/bash -e
 
 echo "================= Installing Selenium PreReqs ==================="
+apt-get update
 sudo apt-get install -y xvfb firefox unzip
 
-sudo apt-get update && apt-get install -y \
+sudo apt-get install -y \
   ca-certificates \
   gconf-service \
   hicolor-icon-theme \
@@ -32,7 +33,9 @@ sudo apt-get install -y -f
 sudo rm -f google-chrome-stable_current_amd64.deb
 
 echo "================= Installing Chrome driver ==================="
-sudo wget http://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
+# install latest chromedriver release as we are installing latest stable chrome version
+CHROME_DRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`
+sudo wget http://chromedriver.storage.googleapis.com/"$CHROME_DRIVER_VERSION"/chromedriver_linux64.zip
 sudo unzip chromedriver_linux64.zip && sudo rm -f chromedriver_linux64.zip
 sudo mv chromedriver /usr/local/bin/chromedriver
 sudo chmod a+x /usr/local/bin/chromedriver
