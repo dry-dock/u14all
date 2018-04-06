@@ -7,7 +7,7 @@ set -e
 useradd elasticsearch
 
 # grab gosu for easy step-down from root
-GOSU_VERSION=1.7
+GOSU_VERSION=1.10
 wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture)"
 wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture).asc"
 export GNUPGHOME="$(mktemp -d)"
@@ -17,7 +17,7 @@ rm -r "$GNUPGHOME" /usr/local/bin/gosu.asc
 chmod +x /usr/local/bin/gosu
 gosu nobody true
 
-ELASTICSEARCH_VERSION=6.1.1
+ELASTICSEARCH_VERSION=6.2.3
 #setup elasticsearch
 cd /usr/local/
 
