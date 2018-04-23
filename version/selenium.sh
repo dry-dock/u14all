@@ -27,7 +27,7 @@ sudo apt-get install -y \
   --no-install-recommends
 
 echo "================= Installing Chrome ==================="
-sudo apt-get install libgconf2-4 libnss3-1d libxss1
+sudo apt-get install -y libgconf2-4 libnss3-1d libxss1
 sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt-get install -y -f
