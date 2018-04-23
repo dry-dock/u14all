@@ -28,7 +28,7 @@ sudo apt-get install -y \
 
 echo "================= Installing Chrome ==================="
 sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb || true
 sudo apt-get install -y -f
 sudo rm -f google-chrome-stable_current_amd64.deb
 
