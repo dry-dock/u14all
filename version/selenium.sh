@@ -27,10 +27,14 @@ sudo apt-get install -y \
   --no-install-recommends
 
 echo "================= Installing Chrome ==================="
-sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo apt-get install -y -f
-sudo rm -f google-chrome-stable_current_amd64.deb
+#sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#sudo dpkg -i google-chrome-stable_current_amd64.deb
+#sudo apt-get install -y -f
+#sudo rm -f google-chrome-stable_current_amd64.deb
+
+wget -q -O- https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install google-chrome-stable
 
 echo "================= Installing Chrome driver ==================="
 # install latest chromedriver release as we are installing latest stable chrome version
@@ -43,10 +47,6 @@ sudo chmod a+x /usr/local/bin/chromedriver
 sudo apt-get install firefox chromium-browser;
 sudo ln -s /usr/bin/chromium-browser /usr/bin/chrome;
 sudo apt-get -f install;
-
-wget -q -O- https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install google-chrome-stable
 
 echo "================= Installing Opera ==================="
 wget -q -O-  http://deb.opera.com/archive.key | sudo apt-key add -
