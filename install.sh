@@ -1,5 +1,6 @@
 #!/bin/bash -e
 
+export DEBIAN_FRONTEND=noninteractive
 sudo chmod 1777 /tmp
 
 for file in /u14all/version/*.sh;
