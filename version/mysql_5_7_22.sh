@@ -7,7 +7,7 @@ apt-get install libaio1 numactl
 mkdir -p /etc/mysql
 mkdir /var/log/mysql
 
-MYSQL_VERSION=5.7.21
+MYSQL_VERSION=5.7.22
 echo "=========== Downloading mysql $MYSQL_VERSION ==============="
 cd /usr/local
 wget -O mysql-"$MYSQL_VERSION"-linux-glibc2.12-x86_64.tar.gz https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-"$MYSQL_VERSION"-linux-glibc2.12-x86_64.tar.gz
