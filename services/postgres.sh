@@ -48,7 +48,6 @@ elif [ "$service_cmd" = 'stop' ]
 then
   echo "================= Stopping postgres ==================="
   printf "\n"
-  sleep 30 #why sleep before stopping
   (kill -9 $(pgrep -f postgresql)) &
   echo "service postgresql killed"
   printf "\n\n"
