@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-NEO4J_VERSION=3.3.5
+NEO4J_VERSION=3.3.6
 echo "=========== Installing neo4j $NEO4J_VERSION ==============="
 
 NEO4J_TARBALL=neo4j-community-"$NEO4J_VERSION"-unix.tar.gz
