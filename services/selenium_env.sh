@@ -2,7 +2,7 @@
 # Begin service ENV variables
 
 if [ -z "$SHIPPABLE_SELENIUM_BINARY" ]; then
-  export SHIPPABLE_SELENIUM_BINARY="/usr/local/selenium/selenium-server-standalone-3.11.0.jar";
+  export SHIPPABLE_SELENIUM_BINARY="/usr/local/selenium/selenium-server-standalone-3.13.0.jar";
 fi
 
 if [ -z "$SHIPPABLE_SELENIUM_PORT" ]; then
