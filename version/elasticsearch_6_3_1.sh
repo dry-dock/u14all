@@ -17,7 +17,7 @@ rm -r "$GNUPGHOME" /usr/local/bin/gosu.asc
 chmod +x /usr/local/bin/gosu
 gosu nobody true
 
-ELASTICSEARCH_VERSION=6.2.4
+ELASTICSEARCH_VERSION=6.3.1
 #setup elasticsearch
 cd /usr/local/
 
