@@ -8,7 +8,7 @@ Available Service
   4.  memcached 1.5.11
   5.  mongodb 4.0.3
   6.  mysql 5.6
-  7.  neo4j 3.3.7
+  7.  neo4j 3.3.8
   8.  postgres 10.5
   9.  rabbitmq 3.6.15
  10.  redis 4.0.11
