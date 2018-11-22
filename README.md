@@ -15,3 +15,5 @@ Available Service
  11.  riak 2.2.3
  12.  selenium 3.141.5
  13.  sqllite 3.22.0
+
+u14all Docker Hub repo: [drydock/u14all](https://hub.docker.com/r/drydock/u14all/)
