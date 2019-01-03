@@ -52,7 +52,7 @@ sudo apt-get install -y opera
 
 echo "================= Installing Selenium ==================="
 sudo mkdir /usr/local/selenium >/dev/null 2>&1
-sudo wget http://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.5.jar -P /usr/local/selenium
+sudo wget http://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar -P /usr/local/selenium
 
 echo "================= Removing google chrome from updation list ==================="
 rm -f /etc/apt/sources.list.d/google-chrome.list
