@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-VERSION=2.2.0
+VERSION=2.3.0
 echo "================= Installing CouchDB $VERSION ==================="
 
 # Install CouchDB
