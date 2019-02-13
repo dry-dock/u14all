@@ -10,7 +10,7 @@ if [ -z "$SHIPPABLE_POSTGRES_PORT" ]; then
 fi
 
 if [ -z "$SHIPPABLE_POSTGRES_VERSION" ]; then
-  export SHIPPABLE_POSTGRES_VERSION="10";
+  export SHIPPABLE_POSTGRES_VERSION="11";
 fi
 
 if [ -z "$SHIPPABLE_POSTGRES_BINARY" ]; then
