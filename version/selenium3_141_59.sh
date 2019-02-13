@@ -53,7 +53,11 @@ sudo apt-get install -y opera
 export SELENIUM_VERSION=3.141.59
 echo "================= Installing Selenium ==================="
 sudo mkdir /usr/local/selenium >/dev/null 2>&1
+<<<<<<< Updated upstream:version/selenium3_141_59.sh
 sudo wget http://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-"$SELENIUM_VERSION".jar -P /usr/local/selenium
+=======
+sudo wget http://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar -P /usr/local/selenium
+>>>>>>> Stashed changes:version/selenium3_141_5.sh
 
 echo "================= Removing google chrome from updation list ==================="
 rm -f /etc/apt/sources.list.d/google-chrome.list

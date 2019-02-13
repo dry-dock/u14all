@@ -3,7 +3,7 @@
 
 sudo apt-get install -y wget ca-certificates
 
-POSTGRES_VERSION=10
+POSTGRES_VERSION=11
 echo "================= Installing Postgres $POSTGRES_VERSION ==================="
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
